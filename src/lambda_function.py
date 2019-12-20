@@ -75,9 +75,9 @@ def lambda_handler(event, context):
                 'fallback': "%s state is now %s" % (alarm_name, new_state),
                 'text': ("*%s*" % alarm_name,
                          "*New State:* %s\n" % new_state,
-                         "*Reason:* %r\n*Description:* %d" % (reason, alarm_description)),
+                         "*Reason:* %s\n*Description:* %s" % (reason, alarm_description)),
                 'color': color,
-                'footer': "Environment: %e | Namespace: %n | Metric: %m" %
+                'footer': "Environment: %s | Namespace: %s | Metric: %s" %
                                 ( ENVIRONMENT, namespace, metric_name),
             },
         ],
