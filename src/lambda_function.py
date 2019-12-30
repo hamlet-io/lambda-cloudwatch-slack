@@ -73,9 +73,11 @@ def lambda_handler(event, context):
         'attachments': [
             {
                 'fallback': "%s state is now %s" % (alarm_name, new_state),
-                'text': ("*%s*" % alarm_name,
-                         "*New State:* %s\n" % new_state,
-                         "*Reason:* %s\n*Description:* %s" % (reason, alarm_description)),
+                'text': '\n'.join((
+                         "*%s*" % alarm_name,
+                         "*New State:* %s" % new_state,
+                         "*Reason:* %s" % reason,
+                         "*Description:* %s" % alarm_description,)),
                 'color': color,
                 'footer': "Environment: %s | Namespace: %s | Metric: %s" %
                                 ( ENVIRONMENT, namespace, metric_name),
