@@ -26,7 +26,6 @@ if isinstance(SLACK_HOOK_URL, (str, bytes)) and SLACK_HOOK_URL.startswith(KMS_PR
                           .decode('utf-8')
 
 LEVEL_TO_COLOR = {
-    'GOOD': '#8ea604',
     'DEBUG': '#fbe14f',
     'INFO': '#2788ce',
     'WARN': '#f18500',
@@ -60,9 +59,7 @@ def lambda_handler(event, context):
     new_state = message['NewStateValue']
 
     if new_state == "OK":
-        color = LEVEL_TO_COLOR.get(
-                    'GOOD',
-                    'INFO')
+        color = LEVEL_TO_COLOR['INFO']
     else:
         color = LEVEL_TO_COLOR.get(
                     alarm_severity,
