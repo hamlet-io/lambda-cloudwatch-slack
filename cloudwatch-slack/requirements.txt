@@ -4,4 +4,3 @@ sentry-sdk==0.13.2
 
 #Development and Deployment
 zappa==0.48.2
-python-lambda-local==0.1.9

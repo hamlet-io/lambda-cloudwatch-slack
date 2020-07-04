@@ -1,0 +1,19 @@
+{
+  "name": "lambda-cloudwatch-slack",
+  "version": "1.0.0",
+  "description": "Serverless Packaging - Sends cloudwatch alerts through to slack",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeontap/lambda-cloudwatch-slack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codeontap/lambda-cloudwatch-slack/issues"
+  },
+  "homepage": "https://github.com/codeontap/lambda-cloudwatch-slack#readme",
+  "devDependencies": {
+    "serverless": "^1.74.1",
+    "serverless-python-requirements": "^5.1.0"
+  }
+}

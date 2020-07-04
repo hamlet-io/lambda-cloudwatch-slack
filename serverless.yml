@@ -1,4 +1,4 @@
-service: cloudwatch-slack
+service: lambda-cloudwatch-clack
 
 plugins:
   - serverless-python-requirements
@@ -7,7 +7,7 @@ package:
   individually: true
   include:
     - '!./**'
-    - './src/**'
+    - './cloudwatch-slack/**'
   exclude:
     - '**'
 
@@ -15,7 +15,7 @@ custom:
   pythonRequirements:
     dockerizePip: 'non-linux'
     invalidateCaches: true
-    fileName: src/requirements.txt
+    fileName: cloudwatch-slack/requirements.txt
 
 provider:
   name: aws
@@ -25,4 +25,4 @@ provider:
 
 functions:
   cloudwatch-slack:
-    handler: src.lambda_function.lambda_handler
+    handler: cloudwatch-slack/lambda_function.lambda_handler
