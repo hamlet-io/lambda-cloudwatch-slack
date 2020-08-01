@@ -7,7 +7,7 @@
     "url": "git+https://github.com/codeontap/lambda-cloudwatch-slack.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "GPL-2.0",
   "bugs": {
     "url": "https://github.com/codeontap/lambda-cloudwatch-slack/issues"
   },
