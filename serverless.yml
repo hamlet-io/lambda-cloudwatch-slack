@@ -15,7 +15,7 @@ custom:
   pythonRequirements:
     dockerizePip: 'non-linux'
     invalidateCaches: true
-    fileName: cloudwatch-slack/requirements.txt
+    fileName: requirements.txt
 
 provider:
   name: aws

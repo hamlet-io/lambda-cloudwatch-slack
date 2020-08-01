@@ -1,6 +1,6 @@
 {
     "default": {
-        "app_function": "lambda_function.lambda_handler",
+        "app_function": "cloudwatch-slack/lambda_function.lambda_handler",
         "aws_region": "ap-southeast-2",
         "runtime": "python3.6",
         "exclude": ["*~", "tmp/", "dist/"]
