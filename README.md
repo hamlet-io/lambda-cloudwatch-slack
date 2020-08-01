@@ -46,7 +46,7 @@ Follow these steps to configure the webhook in Slack:
 
 Since slack webhook URLS contain a secret key to send messages to slack its a good idea to encrypt them using KMS so that you can pass them via an environment Variable
 
-Encrypt the webhook url using KMS ( via the manageCrypto command in [CodeOnTap](https://codeontap.io/) ), and append the kms prefix ( default `base64:` ) to the returned base64 encoded string
+Encrypt the webhook url using KMS ( via the manageCrypto command in [Hamlet](https://hamlet.io/) ), and append the kms prefix ( default `base64:` ) to the returned base64 encoded string
 
 ### KMS IAM Permissions Required
 
