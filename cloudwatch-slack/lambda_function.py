@@ -4,6 +4,7 @@ import boto3
 import json
 import logging
 import os
+import re
 import sentry_sdk
 
 from base64 import b64decode
@@ -49,13 +50,16 @@ sentry_sdk.init(
 
 
 def lambda_handler(event, context):
-    print('off we go...')
-    logger.info("Event: " + str(event))
     message = json.loads(event['Records'][0]['Sns']['Message'])
-    logger.info("Message: " + str(message))
 
     alarm_name = message['AlarmName']
-    alarm_severity = alarm_name.split('-')[0]
+
+    if re.match('^\w*\|', alarm_name) is not None:
+        alarm_severity = alarm_name.split('|')[0]
+    else:
+        alarm_severity = alarm_name.split('-')[0]
+
+    logger.info(f"Severity: {alarm_severity}")
 
     new_state = message['NewStateValue']
 
@@ -94,8 +98,10 @@ def lambda_handler(event, context):
     try:
         response = urlopen(req)
         response.read()
-        logger.info("Message posted to %s", slack_message['channel'] )
+        logger.info(f"Message posted to {SLACK_CHANNEL}" )
     except HTTPError as e:
         logger.error("Request failed: %d %s", e.code, e.reason)
     except URLError as e:
         logger.error("Server connection failed: %s", e.reason)
+
+    return slack_message
