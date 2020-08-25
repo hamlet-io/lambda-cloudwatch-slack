@@ -17,6 +17,7 @@ You can run the script locally using the lambda-local-run python package ( inclu
 
 ```bash
 npm install
+pip install -r requirements.txt
 npx sls invoke local -f cloudwatch-slack --path test_events/event.json --env SLACK_HOOK_URL=https://httpbin.org/post --env SLACK_CHANNEL=test-channel
 ```
 
