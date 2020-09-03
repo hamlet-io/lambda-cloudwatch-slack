@@ -1,4 +1,0 @@
-{
-    "Units" : ["alert-slack"],
-    "Formats": ["lambda"]
-}
