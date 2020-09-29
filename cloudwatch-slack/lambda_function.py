@@ -71,8 +71,14 @@ def lambda_handler(event, context):
                     'ERROR')
 
     alarm_description = message['AlarmDescription']
-    namespace = message['Trigger']['Namespace']
-    metric_name = message['Trigger']['MetricName']
+    if 'Namespace' in message['Trigger']:
+        namespace = message['Trigger']['Namespace']
+    else:
+        namespace = message['Trigger']['Metrics'][0]['MetricStat']['Metric']['Namespace']
+    if 'MetricName' in message['Trigger']:
+        metric_name = message['Trigger']['MetricName']
+    else:
+        metric_name = message['Trigger']['Metrics'][0]['MetricStat']['Metric']['MetricName']
     reason = message['NewStateReason']
 
     slack_message = {
