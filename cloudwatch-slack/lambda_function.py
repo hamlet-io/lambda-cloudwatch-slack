@@ -68,7 +68,7 @@ def lambda_handler(event, context):
     else:
         color = LEVEL_TO_COLOR.get(
                     alarm_severity,
-                    'ERROR')
+                    LEVEL_TO_COLOR['ERROR'])
 
     alarm_description = message['AlarmDescription']
     if 'Namespace' in message['Trigger']:
