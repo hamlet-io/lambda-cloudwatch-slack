@@ -1,7 +1,5 @@
 on:
   push:
-    branches:
-      - 'master'
     tags:
       - 'v*'
 
@@ -21,7 +19,6 @@ jobs:
           npx sls package
 
       - name: Create Tag Release
-        if: startsWith(github.ref, 'refs/tags/')
         id: create_tag_release
         uses: actions/create-release@v1
         env:
@@ -33,38 +30,12 @@ jobs:
           prerelease: false
 
       - name: Upload Tag Release Asset
-        if: startsWith(github.ref, 'refs/tags/')
         id: upload_tag_release_asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_tag_release.outputs.upload_url }}
-          asset_path: ./.serverless/cloudwatch-slack.zip
-          asset_name: cloudwatch-slack.zip
-          asset_content_type: application/zip
-
-      - name: Create Latest Release
-        if: startsWith(github.ref, 'refs/heads/master')
-        id: create_latest_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          allow_duplicate: true
-          tag_name: 'latest'
-          release_name: latest
-          draft: false
-          prerelease: true
-
-      - name: Upload Latest Release Asset
-        if: startsWith(github.ref, 'refs/heads/master')
-        id: upload_latest_release_asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_latest_release.outputs.upload_url }}
           asset_path: ./.serverless/cloudwatch-slack.zip
           asset_name: cloudwatch-slack.zip
           asset_content_type: application/zip
