@@ -35,13 +35,10 @@ This will create the lambda.zip and place it `.serverless/<function name>.zip`
 
 Follow these steps to configure the webhook in Slack:
 
-  1. Navigate to https://<your-team-domain>.slack.com/services/new
-
-  2. Search for and select "Incoming WebHooks".
-
-  3. Choose the default channel where messages will be sent and click "Add Incoming WebHooks Integration".
-
-  4. Copy the webhook URL from the setup instructions and use it in the next section.
+1. Navigate to `https://<your-team-domain>.slack.com/services/new`
+2. Search for and select "Incoming WebHooks".
+3. Choose the default channel where messages will be sent and click "Add Incoming WebHooks Integration".
+4. Copy the webhook URL from the setup instructions and use it in the next section.
 
 ## Slack Webhook Encryption
 
