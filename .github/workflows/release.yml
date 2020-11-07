@@ -1,0 +1,43 @@
+on:
+  push:
+    branches:
+      - 'master'
+    tags:
+      - 'v*'
+
+name: Create Lambda Release
+
+jobs:
+  build:
+    name: Create Lambda Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build project
+        run: |
+          npm ci
+          npx sls package
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref  }}
+          release_name: Release ${{ github.ref }}
+          draft: ${{ github.ref == 'master' }}
+          prerelease: ${{ github.ref == 'master' }}
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./.serverless/cloudwatch-slack.zip
+          asset_name: cloudwatch-slack.zip
+          asset_content_type: application/zip
