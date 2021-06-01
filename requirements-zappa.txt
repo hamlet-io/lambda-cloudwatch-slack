@@ -1,2 +1,0 @@
-#Development and Deployment
-zappa==0.48.2
