@@ -5,11 +5,9 @@ plugins:
 
 package:
   individually: true
-  include:
+  patterns:
     - '!./**'
     - './cloudwatch-slack/**'
-  exclude:
-    - '**'
 
 custom:
   pythonRequirements:
@@ -19,9 +17,10 @@ custom:
 
 provider:
   name: aws
-  runtime: python3.6
+  runtime: python3.8
   stage: dev
   region: ap-southeast-2
+  lambdaHashingVersion: 20201221
 
 functions:
   cloudwatch-slack:
