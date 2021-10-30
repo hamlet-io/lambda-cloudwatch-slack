@@ -1,4 +1,4 @@
-service: lambda-cloudwatch-clack
+service: lambda-cloudwatch-slack
 
 plugins:
   - serverless-python-requirements
