@@ -11,6 +11,7 @@ package:
 
 custom:
   pythonRequirements:
+    pythonBin: python3
     dockerizePip: 'non-linux'
     invalidateCaches: true
     fileName: requirements.txt
