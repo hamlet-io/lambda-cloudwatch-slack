@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/codeontap/lambda-cloudwatch-slack#readme",
   "devDependencies": {
-    "serverless": "^3.16.0",
+    "osls": "^3.46.0",
     "serverless-python-requirements": "^5.4.0"
   }
 }
