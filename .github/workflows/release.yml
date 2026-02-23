@@ -16,7 +16,7 @@ jobs:
       - name: Build project
         run: |
           npm install
-          npx sls package
+          npx osls package
 
       - name: Create Tag Release
         id: create_tag_release
