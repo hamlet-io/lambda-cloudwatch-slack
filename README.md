@@ -18,7 +18,7 @@ You can run the script locally using the lambda-local-run python package ( inclu
 ```bash
 npm install
 pip install -r requirements.txt
-npx sls invoke local -f cloudwatch-slack --path test_events/event.json --env SLACK_HOOK_URL=https://httpbin.org/post --env SLACK_CHANNEL=test-channel
+npx osls invoke local -f cloudwatch-slack --path test_events/event.json --env SLACK_HOOK_URL=https://httpbin.org/post --env SLACK_CHANNEL=test-channel
 ```
 
 ## Packaging
@@ -26,7 +26,7 @@ npx sls invoke local -f cloudwatch-slack --path test_events/event.json --env SLA
 To create a zip package for lambda deployment
 
 ```bash
-npx sls package
+npx osls package
 ```
 
 This will create the lambda.zip and place it `.serverless/<function name>.zip`
