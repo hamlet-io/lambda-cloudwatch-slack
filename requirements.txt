@@ -2,3 +2,4 @@
 boto3==1.42.71
 sentry-sdk==2.55.0
 certifi>=2026.2.25
+urllib3>=2.7.0        # pin to fix GHSA-mf9v-mfxr-j63j and GHSA-qccp-gfcp-xxvc
